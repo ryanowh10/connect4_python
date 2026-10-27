@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connect 4 Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">●</span> Connect 4 <span class="brand-light">Lab</span></a>
+  <div class="top-actions"><span id="runtime-status" class="status"><i></i> Python loading…</span><button id="reset-all" class="button ghost">Start over</button></div>
+</header>
+<main class="app">
+  <aside class="sidebar">
+    <div class="eyebrow">YOUR LEARNING PATH</div>
+    <h2>Missions</h2>
+    <div id="mission-list" class="mission-list"></div>
+    <div class="side-note"><span>✦</span><div><strong>Learn by experimenting</strong><p>Change your code, run it, then observe what happens on the board.</p></div></div>
+  </aside>
+  <section class="workspace">
+    <div class="mission-heading">
+      <div><div id="mission-kicker" class="eyebrow">MISSION 01 / 08</div><h1 id="mission-title">Make your first move</h1><p id="mission-description">Write a Python strategy that chooses a column.</p></div>
+      <span id="mission-tag" class="tag">FUNCTIONS</span>
+    </div>
+    <div class="work-grid">
+      <section class="panel editor-panel">
+        <div class="panel-head"><div><span class="file-icon">Py</span><strong>main.py</strong><span class="muted">· Python</span></div><button id="restore-code" class="small-button">Restore starter</button></div>
+        <div class="editor-wrap"><div class="line-numbers" id="line-numbers">1</div><textarea id="code-editor" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Python code editor"></textarea></div>
+        <div class="editor-foot"><span>Python 3 · runs in your browser</span><span id="editor-count">1 line</span></div>
+        <div class="editor-actions"><button id="run-code" class="button primary">▶ Run strategy</button><button id="test-code" class="button secondary">✓ Test my code</button></div>
+        <div class="hint-box"><strong>Mission hint</strong><p id="mission-hint">The function should return a column number from 0 to 6.</p></div>
+      </section>
+      <section class="panel arena-panel">
+        <div class="panel-head"><div><strong>Game arena</strong><span class="muted">· 7 × 6 board</span></div><button id="new-game" class="small-button">↻ New game</button></div>
+        <div class="game-status"><span class="turn-dot red" id="turn-dot"></span><div><strong id="game-message">Your move</strong><small id="game-submessage">Click a column to drop a red disc.</small></div></div>
+        <div id="column-buttons" class="column-buttons" aria-label="Choose a column"></div>
+        <div id="board" class="board" aria-label="Connect Four board"></div>
+        <div class="legend"><span><i class="legend-disc red"></i>You</span><span><i class="legend-disc yellow"></i>Python strategy</span></div>
+        <div class="arena-bottom"><span id="move-count">0 moves</span><span id="last-move">Waiting for first move</span></div>
+      </section>
+    </div>
+    <div class="lower-grid">
+      <section class="panel output-panel"><div class="panel-head"><strong>Program output</strong><button id="clear-output" class="small-button">Clear</button></div><pre id="output" aria-live="polite">Welcome to Connect 4 Lab.
+Load Python, then run your strategy.</pre></section>
+      <section class="panel variables-panel"><div class="panel-head"><strong>Variable inspector</strong><span class="muted">Live snapshot</span></div><div id="variables" class="variables"><div class="empty-state">Run your code to inspect variables.</div></div></section>
+    </div>
+    <section class="panel test-panel" id="test-panel"><div class="panel-head"><strong>Test results</strong><span id="test-summary" class="muted">No tests run yet</span></div><div id="test-results" class="test-results"><p class="empty-state">Run “Test my code” to check your strategy against sample boards.</p></div></section>
+    <footer>Connect 4 Lab · A small coding playground. Your code runs locally in this browser session.</footer>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
